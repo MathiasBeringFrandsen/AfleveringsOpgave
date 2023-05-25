@@ -55,5 +55,27 @@ namespace DataAccesCore.Repositories
             }
         }
 
+        public static void EditFestival(Festival festival)
+        {
+            using (FestivalContext context = new FestivalContext())
+            {
+                Model.Festival tempFestival = context.Festivals.Find(festival.FestivalID);
+                tempFestival.Name = festival.Name;
+                tempFestival.Tickets = festival.Tickets;
+                tempFestival.TicketPrice = festival.TicketPrice;
+                context.SaveChanges();
+            }
+        }
+
+        public static void DeleteFestival(FestivalContext festival)
+        {
+            using (FestivalContext context = new FestivalContext())
+            {
+                Model.Festival tempfestival = context.Festivals.Find(festival.FestivalID);
+                context.Festivals.Remove(tempFestival);
+                context.SaveChanges();
+            }
+        }
+
     }
 }

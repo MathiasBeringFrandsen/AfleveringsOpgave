@@ -54,5 +54,15 @@ namespace BLL.Festivals
         {
             ArtistRepository.DeleteArtist(artist);
         }
+
+        public void EditFestival(Festival festival)
+        {
+            FestivalRepository.EditFestival(festival);
+        }
+
+        public void DeleteFestival(Festivals festival)
+        {
+            FestivalRepository.DeleteFestival(festival);
+        }
     }
 }
