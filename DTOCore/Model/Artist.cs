@@ -11,17 +11,20 @@ namespace DTO.Model
         public string Name { get; set; }
         public int Salary { get; set; }
         public int ArtistID { get; set; }
+        public Festival? Festival { get; set; }
 
+        public Artist() { }
 
-        public Artist(string name, int salary)
+        public Artist(string name, int id, int salary)
         {
+            ArtistID = id;
             Name = name;
             Salary = salary;
         }
 
         public override string ToString()
         {
-            return Name + "(" + Salary + ")";
+            return Name;
         }
     }
 }

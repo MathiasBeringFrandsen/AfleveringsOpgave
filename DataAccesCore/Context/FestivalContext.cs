@@ -29,11 +29,19 @@ namespace DataAccesCore.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Festival>().HasData(new Festival[] {
-                new Festival{FestivalID=-1,Name="Crossroads Guitar Festival"},
-                new Festival{FestivalID=-2,Name="Roskilde Festival"},
-                new Festival{FestivalID=-3,Name="Glastonbury Festival"}
+                new Festival{FestivalID=-1,Name="Crossroads Guitar Festival", Tickets=30000, TicketPrice=1500},
+                new Festival{FestivalID=-2,Name="Roskilde Festival", Tickets=90000, TicketPrice= 1050},
+                new Festival{FestivalID=-3,Name="Glastonbury Festival", Tickets=150000, TicketPrice=1300}
+            });
+            modelBuilder.Entity<Artist>().HasData(new Artist[]
+            {
+                new Artist{ArtistID=-1, Name="Foo Fighters", Salary=5000000},
+                new Artist{ArtistID=-2, Name="Stevie Ray Vaughan", Salary=10000000},
+                new Artist{ArtistID=-3, Name="BB King", Salary=2500000}
             });
         }
         public DbSet<Festival> Festivals { get; set; }
+
+        public DbSet<Artist> Artists { get; set; }
     }
 }

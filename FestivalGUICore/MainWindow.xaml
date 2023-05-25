@@ -10,30 +10,29 @@
 
         <TabControl>
             <TabItem Header="Festivals">
-                <Grid Background="#FFE5E5E5">
-                    <ListBox x:Name="festivalList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,10,577,82"/>
-                    <ListBox HorizontalAlignment="Left" Height="314" Margin="222,10,0,0" VerticalAlignment="Top" Width="189" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-                    <TextBox HorizontalAlignment="Left" Margin="416,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="130"/>
-                    <TextBox HorizontalAlignment="Left" Margin="416,33,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="130"/>
-                    <TextBox HorizontalAlignment="Left" Margin="416,56,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="130"/>
-                    <Button Content="Tilføj" HorizontalAlignment="Left" Margin="416,79,0,0" VerticalAlignment="Top"/>
-                    <Button Content="Slet" HorizontalAlignment="Left" Margin="506,79,0,0" VerticalAlignment="Top"/>
-                    <Button Content="Ret" HorizontalAlignment="Left" Margin="461,79,0,0" VerticalAlignment="Top"/>
+                <Grid x:Name="festivalGrid" Background="#FFE5E5E5">
+                    <ListView x:Name="festivalList" IsSynchronizedWithCurrentItem="True" Margin="10,10,577,82" SelectionChanged="festivalList_SelectionChanged"/>
+                    <ListView x:Name="festivalArtists" HorizontalAlignment="Left" Height="314" Margin="222,10,0,0" VerticalAlignment="Top" Width="189"/>
+                    <TextBox x:Name="festivalName" HorizontalAlignment="Left" Margin="416,10,0,0" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Width="130"/>
+                    <TextBox x:Name="antalBilletter" HorizontalAlignment="Left" Margin="416,33,0,0" TextWrapping="Wrap" Text="{Binding Path=Tickets}" VerticalAlignment="Top" Width="130"/>
+                    <TextBox x:Name="prisPrBillet" HorizontalAlignment="Left" Margin="416,56,0,0" TextWrapping="Wrap" Text="{Binding Path=TicketPrice}" VerticalAlignment="Top" Width="130"/>
+                    <Button x:Name="FestivalTilfoej" Content="Tilføj" HorizontalAlignment="Left" Margin="416,79,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="FestivalSlet" Content="Slet" HorizontalAlignment="Left" Margin="506,79,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="FestivalRet" Content="Ret" HorizontalAlignment="Left" Margin="461,79,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Artists">
-                <Grid Background="#FFE5E5E5">
+                <Grid x:Name="artistGrid" Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="11*"/>
                         <ColumnDefinition Width="386*"/>
                     </Grid.ColumnDefinitions>
-                    <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="3,29,587,61" Grid.Column="1"/>
-                    <ListBox HorizontalAlignment="Left" Height="316" Margin="190,29,0,0" VerticalAlignment="Top" Width="191" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="1"/>
-                    <Button Content="Button" HorizontalAlignment="Left" Margin="386,75,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-                    <Button Content="Button" HorizontalAlignment="Left" Margin="431,75,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-                    <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="386,29,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="130"/>
-                    <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="386,52,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="130"/>
-                    <Button Grid.Column="1" Content="Button" HorizontalAlignment="Left" Margin="476,75,0,0" VerticalAlignment="Top"/>
+                    <ListView x:Name="artistList" IsSynchronizedWithCurrentItem="True" Margin="10,10,602,80" Grid.ColumnSpan="2"/>
+                    <Button x:Name="ArtistTilfoej" Content="Tilføj" HorizontalAlignment="Left" Margin="175,56,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Button x:Name="ArtistRet" Content="Ret" HorizontalAlignment="Left" Margin="229,56,0,0" VerticalAlignment="Top" Grid.Column="1" Click="ArtistRet_Click"/>
+                    <TextBox x:Name="ArtistName" Grid.Column="1" HorizontalAlignment="Left" Margin="175,10,0,0" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Width="130"/>
+                    <TextBox x:Name="ArtistSalary" Grid.Column="1" HorizontalAlignment="Left" Margin="175,33,0,0" TextWrapping="Wrap" Text="{Binding Path=Salary}" VerticalAlignment="Top" Width="130"/>
+                    <Button x:Name="ArtistDelete" Grid.Column="1" Content="Delete" HorizontalAlignment="Left" Margin="267,56,0,0" VerticalAlignment="Top" Click="ArtistDelete_Click"/>
                 </Grid>
             </TabItem>
         </TabControl>

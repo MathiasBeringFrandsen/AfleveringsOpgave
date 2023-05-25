@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,17 +12,17 @@ namespace DataAccesCore.Mappers
     {
         public static DTO.Model.Artist Map(Artist artist)
         {
-            return new DTO.Model.Artist(artist.Name, artist.Salary);
+            return new DTO.Model.Artist(artist.Name, artist.ArtistID, artist.Salary);
         }
 
-        public static Artist Artist(DTO.Model.Artist artist)
+        public static Artist Map(DTO.Model.Artist artist)
         {
-            return new Artist(artist.Name, artist.Salary);
+            return new Artist(artist.Name, artist.ArtistID, artist.Salary);
         }
 
-        public static List<DTO.Model.Artist> Map(List<Artist> artists)
+        public static ObservableCollection<DTO.Model.Artist> Map(List<Artist> artists)
         {
-            List<DTO.Model.Artist> retur = new List<DTO.Model.Artist>();
+            ObservableCollection<DTO.Model.Artist> retur = new ObservableCollection<DTO.Model.Artist>();
             foreach (Artist artist in artists)
             {
                 retur.Add(Map(artist));
